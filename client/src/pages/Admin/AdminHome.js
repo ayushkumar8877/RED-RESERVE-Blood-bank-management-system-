@@ -14,31 +14,27 @@ const AdminHome = () => {
           <h3>Manage Blood Bank App </h3>
           <hr />
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad
-            explicabo animi blanditiis incidunt dicta quia, quibusdam facere
-            corporis! Dolores, reprehenderit cum sed repellat laudantium
-            architecto natus est nostrum accusamus, odio aspernatur minima
-            fugiat quam molestiae nisi. Temporibus impedit dolorem quia.
-            Distinctio modi non excepturi illo odio voluptatum quae nostrum a
-            temporibus sequi! Explicabo, quasi consequatur ad qui quos labore
-            distinctio voluptates alias nostrum ab dicta aspernatur molestias
-            adipisci quibusdam error ipsa. Totam, tenetur dolores eaque tempora
-            officiis deserunt assumenda? Rerum nemo est nihil laudantium
-            necessitatibus. Possimus, voluptatem voluptates blanditiis quas
-            aspernatur, quam, quaerat minus maiores ipsam sint perferendis
-            dolor. Dignissimos voluptatem doloribus sint in quis omnis, atque
-            neque praesentium voluptatum suscipit. Quas esse, accusantium maxime
-            obcaecati iure officiis aperiam minus alias quod cum quos qui
-            voluptatibus, numquam, ad id dolore odit! Minima laudantium sunt,
-            explicabo nesciunt quos voluptatibus qui libero eligendi praesentium
-            debitis obcaecati similique assumenda nobis labore totam dolore
-            perferendis adipisci fugiat quibusdam tempore doloremque voluptatum
-            accusantium. Accusamus, incidunt sequi. Esse sunt officia fuga,
-            officiis saepe tempora repellat suscipit aliquid cupiditate
-            perferendis, asperiores architecto molestiae rem iste eaque
-            molestias reiciendis. Laborum modi asperiores, reprehenderit
-            assumenda numquam, vitae exercitationem illum nesciunt, dolorum
-            deleniti accusamus consequatur id. Necessitatibus dolore ad fugit?
+            The Admin Dashboard acts as a secure, role-based control layer that
+            orchestrates the core functionalities of the Blood Bank Management
+            System through a scalable and modular architecture. Built on the
+            MERN stack, it enables real-time data visualization, centralized
+            resource management, and seamless interaction with RESTful APIs for
+            donors, hospitals, organizations, and blood inventory. With
+            JWT-based authentication and protected routes, the system ensures
+            robust access control and data integrity across all administrative
+            operations. The dashboard provides dynamic CRUD operations,
+            intelligent filtering, and status tracking for blood availability,
+            request workflows, and donor activity, all backed by an optimized
+            MongoDB database for high-performance querying. Advanced features
+            such as asynchronous data fetching, responsive UI components, and
+            state management deliver a smooth user experience while reducing
+            operational latency. This interface empowers administrators with
+            actionable insights, system analytics, and automated process
+            handling, enabling efficient decision-making, improved traceability,
+            and reliable emergency response. Designed with scalability,
+            security, and maintainability in mind, the platform follows modern
+            web development practices, promoting clean code structure, API
+            reusability, and efficient deployment in a cloud-based environment.
           </p>
         </div>
       </div>

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Layout from "../../components/shared/Layout/Layout";
 import moment from "moment";
 import API from "../../services/API";
+import { toast } from "react-toastify";
 
 const HospitalList = () => {
   const [data, setData] = useState([]);
@@ -31,8 +32,10 @@ const HospitalList = () => {
       );
       if (!answer) return;
       const { data } = await API.delete(`/admin/delete-donar/${id}`);
-      alert(data?.message);
+      toast.success(data?.message);
+      setTimeout(() => {
       window.location.reload();
+      }, 800);
     } catch (error) {
       console.log(error);
     }

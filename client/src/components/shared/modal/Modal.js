@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import InputType from "./../Form/InputType";
 import API from "./../../../services/API";
+import { toast } from "react-toastify";
 
 const Modal = () => {
   const [inventoryType, setInventoryType] = useState("in");
@@ -23,8 +24,11 @@ const Modal = () => {
         quantity,
       });
       if (data?.success) {
-        alert("New Record Created");
-        window.location.reload();
+        toast.success("New Record Created");
+        setTimeout(() => {
+          window.location.reload();
+        }, 1000);
+        
       }
     } catch (error) {
       alert(error.response.data.message);

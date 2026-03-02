@@ -48,7 +48,7 @@ const loginController = async (req, res) => {
     if (user.role !== req.body.role) {
       return res.status(500).send({
         success: false,
-        message: "role dosent match",
+        message: "role doesnt match",
       });
     }
     //compare password

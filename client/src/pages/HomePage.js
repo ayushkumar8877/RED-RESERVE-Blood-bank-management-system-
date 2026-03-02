@@ -6,11 +6,19 @@ import Layout from "../components/shared/Layout/Layout";
 import Modal from "../components/shared/modal/Modal";
 import API from "../services/API";
 import moment from "moment";
+import Chatbot from "../components/Chatbot";
 
 const HomePage = () => {
   const { loading, error, user } = useSelector((state) => state.auth);
   const [data, setData] = useState([]);
   const navigate = useNavigate();
+
+  // ✅ ADMIN REDIRECT FIX
+  useEffect(() => {
+    if (user?.role === "admin") {
+      navigate("/admin");
+    }
+  }, [user, navigate]);
 
   //get function
   const getBloodRecords = async () => {
@@ -18,7 +26,6 @@ const HomePage = () => {
       const { data } = await API.get("/inventory/get-inventory");
       if (data?.success) {
         setData(data?.inventory);
-        // console.log(data);
       }
     } catch (error) {
       console.log(error);
@@ -28,10 +35,11 @@ const HomePage = () => {
   useEffect(() => {
     getBloodRecords();
   }, []);
+
   return (
     <Layout>
-      {user?.role === "admin" && navigate("/admin")}
       {error && <span>{alert(error)}</span>}
+
       {loading ? (
         <Spinner />
       ) : (
@@ -46,16 +54,18 @@ const HomePage = () => {
               <i className="fa-solid fa-plus text-success py-4"></i>
               Add Inventory
             </h4>
-            <table className="table ">
+
+            <table className="table">
               <thead>
                 <tr>
-                  <th scope="col">Blood Group</th>
-                  <th scope="col">Inventory Type</th>
-                  <th scope="col">Quantity</th>
-                  <th scope="col">Donar Email</th>
-                  <th scope="col">TIme & Date</th>
+                  <th>Blood Group</th>
+                  <th>Inventory Type</th>
+                  <th>Quantity</th>
+                  <th>Donar Email</th>
+                  <th>Time & Date</th>
                 </tr>
               </thead>
+
               <tbody>
                 {data?.map((record) => (
                   <tr key={record._id}>
@@ -64,7 +74,9 @@ const HomePage = () => {
                     <td>{record.quantity} (ML)</td>
                     <td>{record.email}</td>
                     <td>
-                      {moment(record.createdAt).format("DD/MM/YYYY hh:mm A")}
+                      {moment(record.createdAt).format(
+                        "DD/MM/YYYY hh:mm A"
+                      )}
                     </td>
                   </tr>
                 ))}
@@ -73,6 +85,9 @@ const HomePage = () => {
 
             <Modal />
           </div>
+
+          {/* ✅ CHATBOT ONLY ON HOMEPAGE */}
+          <Chatbot />
         </>
       )}
     </Layout>

@@ -66,7 +66,7 @@ const getOrgListController = async (req, res) => {
     });
   }
 };
-// =======================================
+// ============================================= DELETE DONAR, HOSPITAL, ORG =============================================
 
 //DELETE DONAR
 const deleteDonarController = async (req, res) => {

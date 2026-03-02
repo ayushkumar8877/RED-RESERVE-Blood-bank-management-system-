@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Layout from "./../../components/shared/Layout/Layout";
 import moment from "moment";
 import API from "../../services/API";
+import { toast } from "react-toastify";
 
 const DonarList = () => {
   const [data, setData] = useState([]);
@@ -23,20 +24,21 @@ const DonarList = () => {
   }, []);
 
   //DELETE FUNCTION
-  const handelDelete = async (id) => {
-    try {
-      let answer = window.prompt(
-        "Are You SUre Want To Delete This Donar",
-        "Sure"
-      );
-      if (!answer) return;
-      const { data } = await API.delete(`/admin/delete-donar/${id}`);
-      alert(data?.message);
-      window.location.reload();
-    } catch (error) {
-      console.log(error);
+const handelDelete = async (id) => {
+  try {
+    if (!window.confirm("Are you sure you want to delete this donor?")) return;
+
+    const { data } = await API.delete(`/admin/delete-donar/${id}`);
+
+    if (data?.success) {
+      toast.success(data.message);
+      setData((prev) => prev.filter((item) => item._id !== id));
     }
-  };
+  } catch (error) {
+    console.log(error);
+    toast.error("Something went wrong");
+  }
+};
 
   return (
     <Layout>
