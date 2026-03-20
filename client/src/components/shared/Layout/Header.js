@@ -3,6 +3,7 @@ import { BiDonateBlood, BiUserCircle } from "react-icons/bi";
 import { useNavigate, useLocation, Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { toast } from "react-toastify";
+import { FaHospital } from "react-icons/fa";
 
 const Header = () => {
   const { user } = useSelector((state) => state.auth);
@@ -24,6 +25,21 @@ const Header = () => {
         <div className="container-fluid ">
           <div className="navbar-brand h1 ">
             <BiDonateBlood color="red" /> Blood Bank App
+          </div>
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: "10px",
+              color: "white",
+              fontSize: "28px",
+              fontWeight: "700",
+              letterSpacing: "2px",
+              lineHeight: "1",
+            }}
+          >
+            <FaHospital style={{ color: "red", fontSize: "32px" }} />
+            RED RESERVE
           </div>
           <ul className="navbar-nav flex-row">
             <li className="nav-item mx-3">
